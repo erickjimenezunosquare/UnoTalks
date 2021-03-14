@@ -14,7 +14,7 @@ namespace TestCases.ParentClasses
             InitializePages();
         }
 
-        private void InitializePages() //protected
+        private void InitializePages()
         {
             Pages = new Pages(Browser);
         }

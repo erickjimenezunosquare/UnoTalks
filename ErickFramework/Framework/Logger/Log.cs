@@ -8,5 +8,10 @@ namespace Framework.Logger
         {
             Console.WriteLine(message);
         }
+
+        public static void PrintSystemInfo()
+        {
+
+        }
     }
 }

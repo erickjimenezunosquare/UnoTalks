@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Framework.Logger;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
@@ -8,8 +9,11 @@ namespace Framework.Pages
 {
     public class BankCreditCards : BasePage, IPage
     {
+        BankHomePage _bankHomePage;
+
         public BankCreditCards(Browser browser):base (browser)
         {
+            _bankHomePage = new BankHomePage(browser);
         }
 
         public override void GoTo()
@@ -44,6 +48,13 @@ namespace Framework.Pages
 
         public BankCreditCards ReportCardAsLostOrStolen(bool askForReplacement, DeliveryTypes deliveryType = DeliveryTypes.Free, List<string> newAddress = null)
         {
+            //THERE IS NEED to instance other pages in order to access their methods (see this class constructor)
+            _bankHomePage
+                .DoSomething();
+
+            //Using parameters from THIS class
+            Assert.AreEqual(5.00, ReplacementCardFee, "Fee $ validation");
+
             Log.Info("askForReplacement: " + askForReplacement.ToString().ToUpper());
             Log.Info("deliveryType: " + deliveryType.ToString());
 
