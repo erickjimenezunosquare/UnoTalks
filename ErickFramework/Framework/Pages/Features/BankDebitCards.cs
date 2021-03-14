@@ -15,7 +15,7 @@ namespace Framework.Pages
         public override void GoTo()
         {
             throw new NotImplementedException();
-        }
+        }        
 
         #region Element locators
 
@@ -73,6 +73,29 @@ namespace Framework.Pages
         public BankCreditCards DoSomething4() { return this; }
 
         #endregion Page Methods
+
+        #region Parameters
+
+        private readonly Dictionary<int, string> _validStatuses = new Dictionary<int, string>
+        {
+            { 1, "Active" },
+            { 2, "Frozen" },
+            { 3, "Suspended" },
+            { 4, "Closed" },
+            { 5, "Expired" },
+            { 6, "Deleted" },
+            { 7, "PIN Retries Exceeded" }
+        };
+
+        public Dictionary<int, string> ValidStatuses { get { return _validStatuses; } }
+
+        public string CustomerServicePhone { get { return "1-866-104-7461"; } }
+
+        public string DisclaimerText { get { return "This text ideally should be placed on a JSON or XML file."; } }
+
+        public double ReplacementCardFee { get { return 5.00; } }
+
+        #endregion Parameters
     }
 
     public enum CardNetworks
