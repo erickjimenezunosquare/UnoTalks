@@ -27,16 +27,6 @@ namespace TestCases
         #endregion Initialization
 
         [Test()]
-        public void SearchInGoogle()
-        {
-            Log.Info("Erick Jiménez Rodríguez");
-
-            SampleClass.DummyTest();
-
-            Log.Info("Dummy test passed!");
-        }
-
-        [Test()]
         public void ReportCard_Comb1_NoReplacement()
         {
             Pages.BankHomePage
