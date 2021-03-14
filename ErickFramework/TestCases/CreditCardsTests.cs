@@ -16,13 +16,14 @@ namespace TestCases
         public void BeforeEachSuite()
         {
             //Actions that happen (before) ONLY once per run
-            InitializeFramework();
+            Log.PrintSystemInfo();
         }
 
         [SetUp]
         public void BeforeEachTest()
         {
             //Actions that happen before each script/test
+            InitializeFramework();
         }
         #endregion Initialization
 
