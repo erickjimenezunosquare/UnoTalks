@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Framework.BusinessObjects;
+
 namespace Framework.Pages
 {
-    public class Pages
+    public class BusinessObjects
     {
         private Browser Browser { get; set; }
 
-        public Pages(Browser browser)
+        public BusinessObjects(Browser browser)
         {
             this.Browser = browser;
         }

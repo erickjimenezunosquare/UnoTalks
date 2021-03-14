@@ -5,8 +5,6 @@ namespace Framework
     {
         void InitElements();
 
-        void GoTo();
-
         Browser Browser { get; set; }
     }
 }

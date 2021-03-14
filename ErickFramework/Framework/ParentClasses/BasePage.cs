@@ -16,9 +16,6 @@ namespace Framework
         public void InitElements()
         {
             PageFactory.InitElements(Browser.Driver, this);
-        }
-
-        public abstract void GoTo();
-       
+        }       
     }
 }

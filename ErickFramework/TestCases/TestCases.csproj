@@ -42,7 +42,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Test.cs" />
+    <Compile Include="CreditCardsTests.cs" />
     <Compile Include="ParentClasses\BankTest.cs" />
     <Compile Include="ParentClasses\ErickTest.cs" />
   </ItemGroup>
