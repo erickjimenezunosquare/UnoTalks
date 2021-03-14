@@ -15,14 +15,14 @@ namespace TestCases
         [OneTimeSetUp]
         public void BeforeEachSuite()
         {
+            //Actions that happen (before) ONLY once per run
             InitializeFramework();
         }
 
         [SetUp]
         public void BeforeEachTest()
         {
-            Pages.BankHomePage.InitElements();
-            Pages.BankCreditCards.InitElements();
+            //Actions that happen before each script/test
         }
         #endregion Initialization
 
@@ -37,10 +37,10 @@ namespace TestCases
         }
 
         [Test()]
-        public void ReportCreditCard_Combination1_NoReplacement()
+        public void ReportCard_Comb1_NoReplacement()
         {
             Pages.BankHomePage
-                .LoginWithCredentials("user1", "MyPa$$W0rd123")
+                .LoginWithCredentials("14809876", "MyPa$$W0rd123")
                 .DoSomething();
 
             Pages.BankCreditCards
@@ -48,10 +48,10 @@ namespace TestCases
         }
 
         [Test()]
-        public void ReportCreditCard_Combination2_Rush_OriginalAddress()
+        public void ReportCard_Comb2_Rush_OriginalAddress()
         {
             Pages.BankHomePage
-                .LoginWithCredentials("user1", "MyPa$$W0rd123")
+                .LoginWithCredentials("14809876", "MyPa$$W0rd123")
                 .DoSomething();
 
             Pages.BankCreditCards
@@ -59,7 +59,7 @@ namespace TestCases
         }
 
         [Test()]
-        public void ReportCreditCard_Combination3_Rush_NewAddress()
+        public void ReportCard_Comb3_Rush_NewAddress()
         {
             List<string> newAddressLines = new List<string>
             {
@@ -71,7 +71,7 @@ namespace TestCases
             };
 
             Pages.BankHomePage
-                .LoginWithCredentials("user1", "MyPa$$W0rd123")
+                .LoginWithCredentials("14809876", "MyPa$$W0rd123")
                 .DoSomething();
 
             Pages.BankCreditCards
@@ -79,10 +79,10 @@ namespace TestCases
         }
 
         [Test()]
-        public void ReportCreditCard_Combination4_Free_OriginalAddress()
+        public void ReportCard_Comb4_Free_OriginalAddress()
         {
             Pages.BankHomePage
-                .LoginWithCredentials("user1", "MyPa$$W0rd123")
+                .LoginWithCredentials("14809876", "MyPa$$W0rd123")
                 .DoSomething();
 
             Pages.BankCreditCards
@@ -90,7 +90,7 @@ namespace TestCases
         }
 
         [Test()]
-        public void ReportCreditCard_Combination5_Free_NewAddress()
+        public void ReportCard_Comb5_Free_NewAddress()
         {
             List<string> newAddressLines = new List<string>
             {
@@ -102,7 +102,7 @@ namespace TestCases
             };
 
             Pages.BankHomePage
-                .LoginWithCredentials("user1", "MyPa$$W0rd123")
+                .LoginWithCredentials("14809876", "MyPa$$W0rd123")
                 .DoSomething();
 
             Pages.BankCreditCards
@@ -114,6 +114,7 @@ namespace TestCases
         [TearDown]
         public void AfterEachTest()
         {
+            //Actions that happen after each script/test
             WaitFewSeconds();
             CleanupTest();
         }
@@ -121,6 +122,7 @@ namespace TestCases
         [OneTimeTearDown]
         public void AfterEachSuite()
         {
+            //Actions that happen (after) ONLY once per run
             Log.Info("All scripts ran succesfully");
         }
         #endregion Tear Down

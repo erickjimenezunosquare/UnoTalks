@@ -9,7 +9,7 @@ namespace Framework
     {
         internal IWebDriver Driver { get; set; }
 
-        public void PickDriver() //public IWebDriver PickDriver()
+        public void PickDriver()
         {
             ChromeOptions chromeOptions;
             chromeOptions = new ChromeOptions();
@@ -21,7 +21,6 @@ namespace Framework
             Driver = new ChromeDriver(chromeOptions);
             Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(2);
             Driver.Manage().Window.Maximize();
-            //return Driver;
         }
 
         public void GoToUrl(string url = "https://google.com")

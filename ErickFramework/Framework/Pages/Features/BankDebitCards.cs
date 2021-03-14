@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Framework.Logger;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 
@@ -43,11 +44,23 @@ namespace Framework.Pages
 
         public BankCreditCards ReportCardAsLostOrStolen(bool askForReplacement, DeliveryTypes deliveryType = DeliveryTypes.Free, List<string> newAddress = null)
         {
+            Log.Info("askForReplacement: " + askForReplacement.ToString().ToUpper());
+            Log.Info("deliveryType: " + deliveryType.ToString());
+
+            if(newAddress != null && newAddress.Count >= 1)
+                newAddress.ForEach(x => Log.Info("newAddress: " + x));
+
             return this;
         }
 
         public BankCreditCards AskForCardReplacement(string reasonOfChange, DeliveryTypes deliveryType, List<string> newAddress = null)
         {
+            Log.Info("reasonOfChange: " + reasonOfChange);
+            Log.Info("deliveryType: " + deliveryType.ToString());
+
+            if (newAddress != null && newAddress.Count >= 1)
+                newAddress.ForEach(x => Log.Info("newAddress: " + x));
+
             return this;
         }
 

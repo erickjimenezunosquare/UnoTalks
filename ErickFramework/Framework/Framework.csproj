@@ -49,6 +49,7 @@
     <Compile Include="Pages\Features\BankDebitCards.cs" />
     <Compile Include="Pages\Features\BankHomePage.cs" />
     <Compile Include="Pages\Pages.cs" />
+    <Compile Include="Extras\Constants.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -1,4 +1,5 @@
 ﻿using System;
+using Framework.Extras;
 using Framework.Logger;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
@@ -7,6 +8,8 @@ namespace Framework.Pages
 {
     public class BankHomePage : BasePage, IPage
     {
+        private const bool useGoogleInstead = true;
+
         //Constructor
         public BankHomePage(Browser browser):base (browser)
         {
@@ -20,10 +23,10 @@ namespace Framework.Pages
 
         #region Element locators
 
-        [FindsBy(How = How.Id, Using = "username")]
+        [FindsBy(How = How.XPath, Using = "//input[contains(@name,'username') and contains(@class,'login')]")]
         private readonly IWebElement _inputUsername;
 
-        [FindsBy(How = How.Name, Using = "password")]
+        [FindsBy(How = How.Id, Using = "password")]
         private readonly IWebElement _inputPassword;
 
         [FindsBy(How = How.Name, Using = "q")]
@@ -45,24 +48,35 @@ namespace Framework.Pages
 
         public BankHomePage LoginWithCredentials(string username, string password)
         {
-            const bool useElementDirectly = false;
-
             Log.Info($"Logging in with user: {username}");
             Log.Info($"Logging in with password: {password}");
 
-            Browser.GoToUrl();
+            if (!useGoogleInstead)
+                LoginFlow(username, password);
+            else
+                UseGoogleInstead(username, password);
 
-            if(useElementDirectly)
-            {
-                Browser.Driver.FindElement(By.Name("q")).SendKeys("hardcodeado");
-                Browser.WaitTime(3);
-            }
-
-            InputSearchBar.SendKeys("Simulating a search instead of a login...");
             return this;
+        }
 
+        private void LoginFlow(string username, string password)
+        { 
+            GoToBankUrl();
             InputUsername.SendKeys(username);
+            return;
+
             InputPassword.SendKeys(password);
+        }
+
+        private void UseGoogleInstead(string username, string password)
+        {
+            Browser.GoToUrl();
+            InputSearchBar.SendKeys($"username::{username} - password::{password}");
+        }
+
+        private void GoToBankUrl()
+        {
+            Browser.GoToUrl(Constants.MainUrl);
         }
 
         public BankHomePage DoSomething() { return this;  }
