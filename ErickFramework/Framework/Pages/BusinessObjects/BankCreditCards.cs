@@ -22,7 +22,7 @@ namespace Framework.BusinessObjects
         public BankCreditCards ReportCardOnly()
         {
             bankCreditCardsInteractions
-                .ReportCardAsLostOrStolen(askForReplacement: false);
+                .ReportCardAsLostOrStolen(false);
 
             return this;
         }
@@ -30,7 +30,7 @@ namespace Framework.BusinessObjects
         public BankCreditCards ReportCardRushReplacementOriginalAddress()
         {
             bankCreditCardsInteractions
-                .ReportCardAsLostOrStolen(askForReplacement: true, Pages.Abilities.DeliveryTypes.Rush);
+                .ReportCardAsLostOrStolen(true, Pages.Abilities.DeliveryTypes.Rush);
 
             return this;
         }
@@ -47,7 +47,7 @@ namespace Framework.BusinessObjects
             };
 
             bankCreditCardsInteractions
-                .ReportCardAsLostOrStolen(askForReplacement: true, Pages.Abilities.DeliveryTypes.Rush, newAddressLines);
+                .ReportCardAsLostOrStolen(true, Pages.Abilities.DeliveryTypes.Rush, newAddressLines);
 
             return this;
         }
@@ -55,7 +55,7 @@ namespace Framework.BusinessObjects
         public BankCreditCards ReportCardFreeReplacementOriginalAddress()
         {
             bankCreditCardsInteractions
-                .ReportCardAsLostOrStolen(askForReplacement: true, Pages.Abilities.DeliveryTypes.Free);
+                .ReportCardAsLostOrStolen(true, Pages.Abilities.DeliveryTypes.Free);
 
             return this;
         }
@@ -72,7 +72,7 @@ namespace Framework.BusinessObjects
             };
 
             bankCreditCardsInteractions
-                .ReportCardAsLostOrStolen(askForReplacement: true, Pages.Abilities.DeliveryTypes.Free, newAddressLines);
+                .ReportCardAsLostOrStolen(true, Pages.Abilities.DeliveryTypes.Free, newAddressLines);
 
             return this;
         }
